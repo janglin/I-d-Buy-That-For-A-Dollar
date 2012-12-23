@@ -1,5 +1,5 @@
-Given /^I would like to see all deals available to me in "([^"]*)"$/ do |arg|
-  pending
+Given /^I would like to see all deals available to me in "([^"]*)"$/ do |which_area|
+  visit_page(HomePage).go_to_sign_in
 end
 
 When /^all of the available deals have been displayed$/ do
