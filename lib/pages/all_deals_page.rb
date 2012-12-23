@@ -24,11 +24,4 @@ class AllDealsPage
   def total_number_of_deals
     deal_totals.to_i
   end
-
-  def print_all_deals
-    the_deals.each do |deal|
-      puts "-" * 15
-      puts deal.text
-    end
-  end
 end
