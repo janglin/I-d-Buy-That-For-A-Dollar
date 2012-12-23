@@ -1,8 +1,7 @@
 Given /^I would like to see all deals available to me in "([^"]*), ([^"]*)"$/ do |city, state|
-  visit_page(HomePage).go_to_sign_in
-  on_page(SignInPage).sign_in_as_levi
-  on_page(FeaturedDealPage).all_deals
-  on_page(AllDealsPage).choose_deals_in(city, state)
+  navigate_to(AllDealsPage, :using => :all_deals_for_levi) do |all_deals|
+    all_deals.choose_deals_in(city, state)
+  end
 end
 
 When /^all of the available deals have been displayed$/ do
