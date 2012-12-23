@@ -9,4 +9,10 @@ class AllDealsPage
     platform.list_item_for(:id => "state_#{state[0].upcase}").click
     platform.link_for(:text => /#{city}/).click
   end
+
+  def display_all_deals
+    while more_deals?
+      more_deals_element.click
+    end
+  end
 end

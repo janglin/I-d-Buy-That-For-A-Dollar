@@ -5,11 +5,7 @@ Given /^I would like to see all deals available to me in "([^"]*), ([^"]*)"$/ do
 end
 
 When /^all of the available deals have been displayed$/ do
-  on_page(AllDealsPage) do |page|
-    while page.more_deals?
-      page.more_deals_element.click
-    end
-  end
+  on_page(AllDealsPage).display_all_deals
 end
 
 Then /^I should have a good idea on how to save some serious cash$/ do
