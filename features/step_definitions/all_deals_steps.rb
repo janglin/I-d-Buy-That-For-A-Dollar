@@ -6,6 +6,7 @@ Given /^I would like to see all deals available to me in "([^"]*)"$/ do |which_a
     page.uncheck_remember_me
     page.sign_in
   end
+  on_page(FeaturedDealPage).all_deals
 end
 
 When /^all of the available deals have been displayed$/ do
