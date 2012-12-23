@@ -2,6 +2,7 @@ class AllDealsPage
   include PageObject
 
   link(:show_the_cities, :href => "/cities")
+  span(:more_deals, :text => /See \d+ More Deals/i)
 
   def choose_deals_in(city, state)
     show_the_cities
