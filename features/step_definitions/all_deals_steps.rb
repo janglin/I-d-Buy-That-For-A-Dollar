@@ -11,5 +11,6 @@ end
 Then /^I should have a good idea on how to save some serious cash$/ do
   on_page(AllDealsPage) do |page|
     page.the_deals.count.should eq(page.total_number_of_deals)
+    page.print_all_deals
   end
 end
