@@ -9,5 +9,8 @@ When /^all of the available deals have been displayed$/ do
 end
 
 Then /^I should have a good idea on how to save some serious cash$/ do
-  pending
+  on_page(AllDealsPage) do |page|
+    all_deals = page.platform.divs_for(:class => "deal-content")
+    all_deals.count.should eq(page.total_number_of_deals)
+  end
 end

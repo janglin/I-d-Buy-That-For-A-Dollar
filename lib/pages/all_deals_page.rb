@@ -3,6 +3,7 @@ class AllDealsPage
 
   link(:show_the_cities, :href => "/cities")
   span(:more_deals, :text => /See \d+ More Deals/i)
+  span(:deal_totals, :class => "results")
 
   def choose_deals_in(city, state)
     show_the_cities
@@ -14,5 +15,9 @@ class AllDealsPage
     while more_deals?
       more_deals_element.click
     end
+  end
+
+  def total_number_of_deals
+    deal_totals.to_i
   end
 end
