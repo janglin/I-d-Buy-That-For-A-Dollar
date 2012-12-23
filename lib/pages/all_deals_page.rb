@@ -17,6 +17,10 @@ class AllDealsPage
     end
   end
 
+  def the_deals
+    platform.divs_for(:class => "deal-content")
+  end
+
   def total_number_of_deals
     deal_totals.to_i
   end
