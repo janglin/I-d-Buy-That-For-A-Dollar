@@ -14,3 +14,16 @@ Then /^I should have a good idea on how to save some serious cash$/ do
     page.the_deals.each &:print
   end
 end
+
+When /^I am observing the categories for the "([^"]*)" deal$/ do |which_deal|
+  the_deal = on_page(AllDealsPage).the_deals(:text => /#{which_deal}/).first
+  the_deal.hover
+  the_deal.element.fire_event "onmouseover"
+  the_deal.element.element(:class => "heartx-heart").fire_event "onmouseover"
+  @the_categories = the_deal.element.lis.map &:text
+end
+
+Then /^I have the option to express that I like deals about:$/ do |categories|
+  actual_categories = categories.hashes.map {|row| row["Category"]}
+  @the_categories.should eq(actual_categories)
+end

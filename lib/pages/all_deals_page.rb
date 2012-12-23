@@ -17,8 +17,8 @@ class AllDealsPage
     end
   end
 
-  def the_deals
-    platform.divs_for(:class => "deal-content")
+  def the_deals(locator={})
+    platform.divs_for({:class => "deal-list-tile"}.merge(locator))
   end
 
   def total_number_of_deals
