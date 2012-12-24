@@ -21,6 +21,6 @@ When /^I am observing the categories for the "([^"]*)" deal$/ do |which_deal|
 end
 
 Then /^I have the option to express that I like deals about:$/ do |categories|
-  actual_categories = categories.hashes.map {|row| row["Category"]}
-  @the_categories.should eq(actual_categories)
+  expected_categories = categories.hashes.map {|row| row["Category"]}
+  @the_categories.should eq(expected_categories)
 end
