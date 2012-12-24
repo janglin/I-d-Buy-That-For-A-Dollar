@@ -24,3 +24,11 @@ Then /^I have the option to express that I like deals about:$/ do |categories|
   expected_categories = categories.hashes.map {|row| row["Category"]}
   @the_categories.should eq(expected_categories)
 end
+
+When /^I categorize "([^"]*)" as "([^"]*)"$/ do |which_deal, which_category|
+  pending
+end
+
+Then /^then next time my deal knows that I like "([^"]*)" about it$/ do |which_category|
+  pending
+end

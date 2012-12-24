@@ -14,3 +14,7 @@ Feature:  All deals feature
       | Date Night         |
       | Cultural Pursuits  |
       | Once in a Lifetime |
+
+  Scenario: Personally categorizing deals
+    When I categorize "Jiffy Lube of Indiana" as "New Car Smell"
+    Then then next time my deal knows that I like "New Car Smell" about it
