@@ -18,10 +18,17 @@ class AllDealsPage
   end
 
   def the_deals(locator={})
-    platform.divs_for({:class => "deal-list-tile"}.merge(locator))
+    raw_deals(locator).map do |deal|
+      Deal.new(deal)
+    end
   end
 
   def total_number_of_deals
     deal_totals.to_i
+  end
+
+  private
+  def raw_deals(locator)
+    platform.divs_for({:class => "deal-list-tile"}.merge(locator))
   end
 end
