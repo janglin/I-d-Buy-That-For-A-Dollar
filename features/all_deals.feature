@@ -7,7 +7,7 @@ Feature:  All deals feature
     When all of the available deals have been displayed
     Then I should have a good idea on how to save some serious cash
 
-  Scenario: Choosing what I like about a deal
+  Scenario: Knowing what categories a deal falls under
     When I am observing the categories for the "Eagle Aircraft" deal
     Then I have the option to express that I like deals about:
       | Category           |
