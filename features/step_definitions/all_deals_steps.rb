@@ -34,3 +34,11 @@ Then /^then next time my deal knows that I like "([^"]*)" about it$/ do |expecte
   @the_deal.active_categories.should include(expected_category)
   @the_deal.clear_active_categories
 end
+
+When /^I have no interested in "([^"]*)"$/ do |uninteresting_deals|
+  pending
+end
+
+Then /^the deals I think are not interesting will be remembered$/ do
+  pending
+end

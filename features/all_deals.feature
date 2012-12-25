@@ -18,3 +18,7 @@ Feature:  All deals feature
   Scenario: Personally categorizing deals
     When I categorize "Jiffy Lube of Indiana" as "New Car Smell"
     Then then next time my deal knows that I like "New Car Smell" about it
+
+  Scenario: Hiding deals that we are not interested in
+    When I have no interested in "Omaha Steaks, Salon Ubon, Aluminyze"
+    Then the deals I think are not interesting will be remembered
