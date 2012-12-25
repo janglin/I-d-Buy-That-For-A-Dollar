@@ -48,9 +48,12 @@ Then /^the deals I think are not interesting will be remembered$/ do
 end
 
 When /^I am curious about "([^"]*)"s deal of the day$/ do |whose_deal|
-  pending
+  on_page(AllDealsPage) do |page|
+    the_deal = page.the_deals(:text => /#{whose_deal}/).first
+    the_deal.more_info
+  end
 end
 
 Then /^I am presented more information about "([^"]*)"s deal of the day$/ do |whose_deal|
-  pending
+  on_page(FeaturedDealPage).title.should match("#{whose_deal} Deal of the Day")
 end

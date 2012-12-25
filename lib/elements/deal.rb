@@ -22,6 +22,11 @@ class Deal
     all_active_categories.each &:uncheck
   end
 
+  def more_info
+    element.hover
+    element.a(:class => "deal-permalink").click
+  end
+
   def ignore
     element.hover
     element.element(:class => "heartx-xout").fire_event "click"
