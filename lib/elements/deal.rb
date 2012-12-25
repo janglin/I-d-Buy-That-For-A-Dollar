@@ -10,17 +10,15 @@ class Deal
   end
 
   def categorize_as(category)
-    categories_matching(category).first.click
+    categories_matching(category).first.check
   end
 
   def active_categories
-    all_active_categories.map &:title
+    all_active_categories.map &:text
   end
 
   def clear_active_categories
-    all_active_categories.each do |active_category|
-      active_category.click unless active_category.title.empty?
-    end
+    all_active_categories.each &:uncheck
   end
 
   def print
@@ -33,20 +31,18 @@ class Deal
     mouseover(element.element(:class => "heartx-heart"))
   end
 
-  def all_categories(active_only=false)
+  def all_categories
     show_categories
-    expected_class = "heartx-deal-feedback"
-    expected_class << " active" if active_only
-    element.as(:class => expected_class)
+    element.as(:class => "heartx-deal-feedback").map {|el| Category.new(el)}
   end
 
   def all_active_categories
-    all_categories(true)
+    all_categories.select &:active?
   end
 
   def categories_matching(text)
     all_categories.select do |category|
-      category.title.match /#{text}/
+      category.match? text
     end
   end
 
