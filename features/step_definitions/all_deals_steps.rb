@@ -59,9 +59,12 @@ Then /^I am presented more information about "([^"]*)"s deal of the day$/ do |wh
 end
 
 When /^I've decided the featured deal is exactly what I want$/ do
-  pending
+  on_page(AllDealsPage) do |page|
+    @expected_price = page.the_deals.first.price
+    page.buy_now
+  end
 end
 
 Then /^I can immediately add the featured deal to my order$/ do
-  pending
+  on_page(PurchasePage).my_price.should eq(@expected_price)
 end

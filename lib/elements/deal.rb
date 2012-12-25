@@ -49,6 +49,10 @@ class Deal
     content.element(:class => "merchant-name").text
   end
 
+  def price
+    content.element(:class => "price").span(:class => "").text << ".00"
+  end
+
   def print
     puts "#{"-" * 15}\n#{text}"
   end

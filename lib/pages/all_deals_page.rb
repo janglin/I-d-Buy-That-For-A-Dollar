@@ -4,6 +4,7 @@ class AllDealsPage
   link(:show_the_cities, :href => "/cities")
   span(:more_deals, :text => /See \d+ More Deals/i)
   span(:deal_totals, :class => "results")
+  link(:buy_now, :text => "Buy Now!")
 
   def choose_deals_in(city, state)
     show_the_cities
