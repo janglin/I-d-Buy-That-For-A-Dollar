@@ -26,3 +26,7 @@ Feature:  All deals feature
   Scenario: Viewing a merchant's deal of the day
     When I am curious about "Michiana Dance"s deal of the day
     Then I am presented more information about "Michiana Dance"s deal of the day
+
+  Scenario: Immediately purchasing the featured deal
+    When I've decided the featured deal is exactly what I want
+    Then I can immediately add the featured deal to my order

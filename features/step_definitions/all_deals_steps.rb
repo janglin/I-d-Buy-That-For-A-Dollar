@@ -57,3 +57,11 @@ end
 Then /^I am presented more information about "([^"]*)"s deal of the day$/ do |whose_deal|
   on_page(FeaturedDealPage).title.should match("#{whose_deal} Deal of the Day")
 end
+
+When /^I've decided the featured deal is exactly what I want$/ do
+  pending
+end
+
+Then /^I can immediately add the featured deal to my order$/ do
+  pending
+end
