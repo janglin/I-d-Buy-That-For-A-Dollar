@@ -36,9 +36,13 @@ Then /^then next time my deal knows that I like "([^"]*)" about it$/ do |expecte
 end
 
 When /^I have no interested in "([^"]*)"$/ do |uninteresting_deals|
-  pending
+  @uninteresting_deals = uninteresting_deals.split ", "
+  on_page(AllDealsPage).choose_to_ignore *@uninteresting_deals
 end
 
 Then /^the deals I think are not interesting will be remembered$/ do
-  pending
+  on_page(AllDealsPage) do |page|
+    page.ignored_deals.should eq(@uninteresting_deals)
+    page.clear_ignored_deals
+  end
 end

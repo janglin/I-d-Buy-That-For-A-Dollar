@@ -2,6 +2,7 @@ class Deal
   attr_reader :element
 
   def initialize(page_element)
+    @page_element = page_element
     @element = page_element.element
   end
 
@@ -21,8 +22,30 @@ class Deal
     all_active_categories.each &:uncheck
   end
 
+  def ignore
+    element.hover
+    element.element(:class => "heartx-xout").fire_event "click"
+  end
+
+  def ignored?
+    element.class_name.include? "heartx-deal-xout"
+  end
+
+  def care_about
+    element.hover
+    element.element(:class => "heartx-undo").click
+  end
+
+  def text
+    content.text
+  end
+
+  def merchant
+    content.element(:class => "merchant-name").text
+  end
+
   def print
-    puts "#{"-" * 15}\n#{content.text}"
+    puts "#{"-" * 15}\n#{text}"
   end
 
   private

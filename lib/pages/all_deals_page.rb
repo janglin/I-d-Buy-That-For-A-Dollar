@@ -23,6 +23,20 @@ class AllDealsPage
     end
   end
 
+  def ignored_deals
+    the_deals.select(&:ignored?).map &:merchant
+  end
+
+  def clear_ignored_deals
+    the_deals.select(&:ignored?).each &:care_about
+  end
+
+  def choose_to_ignore(*these_deals)
+    these_deals.each do |deal|
+      the_deals(:text => /#{deal}/).each &:ignore
+    end
+  end
+
   def total_number_of_deals
     deal_totals.to_i
   end
