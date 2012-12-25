@@ -46,3 +46,11 @@ Then /^the deals I think are not interesting will be remembered$/ do
     page.clear_ignored_deals
   end
 end
+
+When /^I am curious about "([^"]*)"s deal of the day$/ do |whose_deal|
+  pending
+end
+
+Then /^I am presented more information about "([^"]*)"s deal of the day$/ do |whose_deal|
+  pending
+end

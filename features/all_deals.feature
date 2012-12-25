@@ -22,3 +22,7 @@ Feature:  All deals feature
   Scenario: Hiding deals that we are not interested in
     When I have no interested in "Omaha Steaks, Salon Ubon, Aluminyze"
     Then the deals I think are not interesting will be remembered
+
+  Scenario: Viewing a merchant's deal of the day
+    When I am curious about "Michiana Dance"s deal of the day
+    Then I am presented more information about "Michiana Dance"s deal of the day
