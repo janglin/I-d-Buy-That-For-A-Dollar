@@ -35,7 +35,7 @@ Then /^then next time my deal knows that I like "([^"]*)" about it$/ do |expecte
   @the_deal.clear_active_categories
 end
 
-When /^I have no interested in "([^"]*)"$/ do |uninteresting_deals|
+When /^I have no interest in "([^"]*)"$/ do |uninteresting_deals|
   @uninteresting_deals = uninteresting_deals.split ", "
   on_page(AllDealsPage).choose_to_ignore *@uninteresting_deals
 end
