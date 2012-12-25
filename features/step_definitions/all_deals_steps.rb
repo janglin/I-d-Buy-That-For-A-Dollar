@@ -26,9 +26,11 @@ Then /^I have the option to express that I like deals about:$/ do |categories|
 end
 
 When /^I categorize "([^"]*)" as "([^"]*)"$/ do |which_deal, which_category|
-  pending
+  @the_deal = on_page(AllDealsPage).the_deals(:text => /#{which_deal}/).first
+  @the_deal.categorize_as which_category
 end
 
-Then /^then next time my deal knows that I like "([^"]*)" about it$/ do |which_category|
-  pending
+Then /^then next time my deal knows that I like "([^"]*)" about it$/ do |expected_category|
+  @the_deal.active_categories.should include(expected_category)
+  @the_deal.clear_active_categories
 end
