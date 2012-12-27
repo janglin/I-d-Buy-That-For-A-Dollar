@@ -43,7 +43,6 @@ end
 Then /^the deals I think are not interesting will be remembered$/ do
   on_page(AllDealsPage) do |page|
     page.ignored_deals.sort.should eq(@uninteresting_deals)
-    page.clear_ignored_deals
   end
 end
 
